@@ -1,0 +1,27 @@
+{
+  "name": "RoyalTS-Document-Api-Server",
+  "version": "1.0.0",
+  "description": "A Royal TS API for generating documents",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riemers/royaltsapi.git"
+  },
+  "keywords": [
+    "Royal",
+    "Royalts"
+  ],
+  "author": "Erik-jan Riemers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/riemers/royaltsapi/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3"
+  }
+}
