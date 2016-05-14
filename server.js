@@ -7,14 +7,11 @@ var app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
-
-
 // Initialize the app.
 var server = app.listen(process.env.PORT || 7000, function () {
   var port = server.address().port;
   console.log("App now running on port", port);
 });
-
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
@@ -22,9 +19,9 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-
-var doc = JSON.parse('{}');
+var doc = [];
 function addToArray(value) {
+  //doc = doc + ", " + value;
   doc.push(value);
 }
 
@@ -35,18 +32,18 @@ app.post("/api", function(req, res) {
   }
 
   royalts.object("",req.body.name,"RoyalDocument",function (document,docuuid) {
-    addToArray(JSON.parse(document));
-    //console.log(document);
+    addToArray(JSON.stringify(document));
+    //console.log(JSON.stringify(document));
     for (i=0;i < req.body.document[0].folders[0].folder.length;i++) {
       (function(counter) {
         royalts.object(docuuid, req.body.document[0].folders[0].folder[counter].name, "RoyalFolder", function (folder, folderuuid) {
-          addToArray(folder);
-          //console.log(folder);
+          addToArray(JSON.stringify(folder));
+          //console.log(JSON.stringify(folder));
           for (j = 0; j < req.body.document[0].folders[0].folder[counter].servers.length; j++) {
             var server = req.body.document[0].folders[0].folder[counter].servers[j];
             royalts.object(folderuuid,server.name, "RoyalSSHConnection", function (ssh, sshuuid) {
-              addToArray(ssh);
-              //console.log(ssh);
+              addToArray(JSON.stringify(ssh));
+              //console.log(JSON.stringify(ssh));
             })
           }
         });
@@ -54,10 +51,9 @@ app.post("/api", function(req, res) {
     }
   });
 
-  //royalts.savegenerate(doc.join(''), res, req.body.name + '.rtsz');
-  //console.log(doc.join(''));
-  //console.log(doc.length);
-  //res.status(200).json(req.body);
+  //royalts.savegenerate('[' + doc.join(', ') + ']', res, req.body.name + '.rtsz');
+  console.log(royalts.generate('[' + doc.join(', ') + ']'));
+  res.status(200).json({ "status": "ok" });
 });
 
 //{
