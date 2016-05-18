@@ -53,7 +53,7 @@ app.post("/api", function(req, res) {
     }
   });
 
-  console.log(royalts.generate(jsonObj));
+  console.log(royalts.savegenerate(jsonObj, res, req.body.name));
   res.status(200).json({ "status": "ok" });
   //royalts.savegenerate(jsonObj, res, req.body.name + '.rtsz');
 
