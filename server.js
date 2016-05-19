@@ -64,16 +64,16 @@ app.post("/api", function(req, res) {
 //    "document": [{
 //  "folders": [{
 //    "folder": [{
-//      "name": "gSesamWA",
+//      "name": "prodcution",
 //      "servers": [{
-//        "name": "lrv1423s",
-//        "ip": "lrv1423s.europe.intranet"
+//        "name": "servername",
+//        "ip": "somewhere.internet.com"
 //      }]
 //    }, {
-//      "name": "pPayInitWA",
+//      "name": "servername2",
 //      "servers": [{
-//        "name": "lrv143k4",
-//        "ip": "lrv143k4.europe.intranet"
+//        "name": "servername2",
+//        "ip": "somewhere2.internet.com"
 //      }]
 //    }]
 //  }]
