@@ -1,0 +1,10 @@
+{
+  "presets": [
+    "es2015"
+  ],
+  "plugins": [
+    "syntax-export-extensions",
+    "transform-export-extensions",
+    "add-module-exports"
+  ]
+}
