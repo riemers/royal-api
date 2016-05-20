@@ -1,8 +1,12 @@
 Royal TS API
 ------------
 
-The idea is pretty simple, you can start up this API which will expose a /api url on port 7000.
+Get the required files, by doing a:
+````
+npm install
+````
 
+The idea is pretty simple, you can start up this API which will expose a /api url on port 7000.
 Then you have to PUT a json payload to it in order for it to generate a valid Royal TS document
 
 Example:
@@ -14,7 +18,7 @@ Example:
     "servers": [
       {
         "type": "ssh",
-        "rn10323": "rn10323.europe.intranet",
+        "rn10323": "someserver.domain.com",
         "color": "blue"
       }
     ],
