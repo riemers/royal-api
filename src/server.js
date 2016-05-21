@@ -4,7 +4,8 @@ import RoyalDocument from 'royalts';
 const royalDocument = new RoyalDocument();
 
 const app = express();
-app.use(express.static(`${__dirname}/public`));
+
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 const server = app.listen(process.env.PORT || 7000, () => {
@@ -13,9 +14,13 @@ const server = app.listen(process.env.PORT || 7000, () => {
 });
 
 app.post('/api', (req, res) => {
-  console.log(res.body);
-  royalDocument.setRaw(req.body);
+    if (req.body.json) {
+      req.body = JSON.parse(req.body.json)
+    }
+    royalDocument.setRaw(req.body);
+    const filename = req.body.Name;
   try {
+    res.set('Content-disposition', `attachment; filename=${filename}.rtsz`);
     res.set('Content-Type', 'text/xml');
     res.send(royalDocument.toString());
   } catch (e) {

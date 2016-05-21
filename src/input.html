@@ -7,12 +7,58 @@
 <body>
 <center>
   Input a valid json layout to generate a royal ts document.
-<form action="/api" method="post">
-  <textarea rows="20" cols="150" name="json"></textarea>
+<form action="/api" method="POST">
+  <textarea rows="20" cols="150" placeholder="enter your json string here" name="json"></textarea>
   <br>
   <button type="submit">Submit and give me my document now!</button>
   Don't forget if your syntax is bad to check it at places like <a href="http://jsonlint.com/">JSONLint</a>
 </form>
-</center>
+  </center>
+<h2>Example Json</h2>
+  <pre>
+    {
+	"Type": "RoyalDocument",
+	"Name": "Document Name",
+	"Children": [{
+		"Type": "RoyalFolder",
+		"Name": "production",
+		"Children": [{
+			"Type": "RoyalSSHConnection",
+			"Name": "coolserver",
+			"URI": "10.20.30.40"
+		}]
+	}, {
+		"Type": "RoyalFolder",
+		"Name": "something",
+		"Children": [{
+			"Type": "RoyalFolder",
+			"Name": "inside something",
+			"Children": [{
+				"Type": "RoyalSSHConnection",
+				"Name": "coolserver2",
+				"URI": "10.20.30.47"
+			}]
+		}, {
+			"Type": "RoyalFolder",
+			"Name": "Secret stash"
+		}]
+	}, {
+		"Type": "RoyalFolder",
+		"Name": "dev",
+		"Children": [{
+			"Type": "RoyalFolder",
+			"Name": "secret stuff",
+			"Children": [{
+				"Type": "RoyalSSHConnection",
+				"Name": "secretServer",
+				"URI": "10.20.30.47"
+			}]
+		}, {
+			"Type": "RoyalFolder",
+			"Name": "Just my test"
+		}]
+	}]
+}
+  </pre>
 </body>
 </html>
