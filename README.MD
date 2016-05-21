@@ -1,5 +1,5 @@
-Royal TS API
-------------
+RoyalTS API
+===========
 
 Get the required files, by doing a:
 ````
@@ -7,27 +7,8 @@ npm install
 ````
 
 The idea is pretty simple, you can start up this API which will expose a /api url on port 7000.
-Then you have to PUT a json payload to it in order for it to generate a valid Royal TS document
+Then you have to POST a json payload to it in order for it to generate a valid Royal TS document.
 
-Example:
+It will automaticly give you back the document in XML format.
 
-````
-[
-  {
-    "type" : "folder",
-    "servers": [
-      {
-        "type": "ssh",
-        "rn10323": "someserver.domain.com",
-        "color": "blue"
-      }
-    ],
-    "credentials": "Unix",
-    "Exception": "no error",
-    "Filename": "savedfile.rtsz"
-  }
-]
-
-````
-
-This will generate a folder in your document called "servers" and in there you will have 1 ssh terminal.
+Example data is in the src/server.js at the bottom.

@@ -4,7 +4,6 @@
   "description": "A Royal TS API for generating documents",
   "main": "dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/server.js",
     "postinstall": "npm run build",
     "build": "babel src --out-dir dist --copy-files",
@@ -12,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/riemers/royaltsapi.git"
+    "url": "https://github.com/riemers/royalts-api.git"
   },
   "keywords": [
     "Royal",
@@ -21,7 +20,7 @@
   "author": "Erik-jan Riemers",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/riemers/royaltsapi/issues"
+    "url": "https://github.com/riemers/royalts-api/issues"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
