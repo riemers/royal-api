@@ -24,5 +24,5 @@ keep from downloading the same file over and over)
 
 ## Demo
 
-See it running at [http://royalts.bytework.eu](http://royalts.bytework.eu), limited to 100kb inputs (POST form work + api POST) but i doubt anyone would want
+See it running at [https://royalts.bytework.eu](https://royalts.bytework.eu), limited to 100kb inputs (POST form work + api POST) but i doubt anyone would want
 their super secret stuff generated from the internet, but i wont stop you.
