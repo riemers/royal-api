@@ -15,13 +15,21 @@ const server = app.listen(process.env.PORT || 7000, () => {
 
 app.post('/api', (req, res) => {
     if (req.body.json) {
-      req.body = JSON.parse(req.body.json)
+      try {
+        req.body = JSON.parse(req.body.json);
+      } catch (e) {
+        res.status(400);
+        return res.json({ error: 'Invalid JSON'})
+      }
+    } else {
+      res.status(400);
+      return res.json({ error: 'Missing JSON'})
     }
+    
     royalDocument.setRaw(req.body);
-    const filename = req.body.Name;
-  try {
-    res.set('Content-disposition', `attachment; filename=${filename}.rtsz`);
+    res.set('Content-disposition', `attachment; filename=${req.body.Name}.rtsz`);
     res.set('Content-Type', 'text/xml');
+  try {
     res.send(royalDocument.toString());
   } catch (e) {
     res.status(400);
