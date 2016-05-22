@@ -21,7 +21,9 @@ app.post('/api', (req, res) => {
         res.status(400);
         return res.json({ error: 'Invalid JSON'})
       }
-    } else {
+    } 
+    
+    if (!req.body) {
       res.status(400);
       return res.json({ error: 'Missing JSON'})
     }
