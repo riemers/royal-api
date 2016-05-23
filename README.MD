@@ -26,3 +26,7 @@ keep from downloading the same file over and over)
 
 See it running at [https://royalts.bytework.eu](https://royalts.bytework.eu), limited to 100kb inputs (POST form work + api POST) but i doubt anyone would want
 their super secret stuff generated from the internet, but i wont stop you.
+
+## Docker
+
+A docker file is included, just uses a default 5.5 version and does a npm install and runs it.
